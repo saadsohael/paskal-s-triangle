@@ -1,23 +1,23 @@
-# from math import comb
-#
-# userInput = int(input("Type row number: "))
-#
-# n = [v for v in range(userInput)]
-#
-# i3 = []
-#
-# for i in n:
-#     for r in range(i+1):
-#         number = comb(i,r)
-#         i3.append(str(number))
-# counter = userInput-1
-# for v in range(1,userInput+1):
-#     result = i3[:v]
-#     print( ' '*counter + ' '.join(result))
-#     counter = counter - 1
-#     for v in result:
-#         if v in i3:
-#             i3.remove(v)
+from math import comb
+
+userInput = int(input("Type row number: "))
+
+n = [v for v in range(userInput)]
+
+i3 = []
+
+for i in n:
+    for r in range(i+1):
+        number = comb(i, r)
+        i3.append(str(number))
+counter = userInput-1
+for v in range(1,userInput+1):
+    result = i3[:v]
+    print( ' '*counter + ' '.join(result))
+    counter = counter - 1
+    for v in result:
+        if v in i3:
+            i3.remove(v)
 
 
 """
@@ -43,25 +43,3 @@ def nCr(n, r):
         return 'Wrong Input! N should be always greater than R.'
 
 """
-def nCr(n, r):
-    if int(n) == int(r) or int(r) == 0:
-        return 1
-    elif int(n) > int(r):
-        diff = int(n) - int(r)
-        fuchka = n
-        numerator = n
-        denomenator = r
-        while fuchka > diff:
-            numerator = numerator * (fuchka - 1)
-            fuchka -= 1
-        fuchka = r
-        while fuchka > 1:
-            denomenator = denomenator * (fuchka -1)
-            fuchka -= 1
-        denomenator = denomenator * diff
-        return (int(numerator/denomenator))
-
-    else:
-        return 'Wrong Input! N should be always greater than R.'
-
-print(nCr(8,2))
